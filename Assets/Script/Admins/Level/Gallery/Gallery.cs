@@ -12,6 +12,7 @@ public class Gallery : MonoBehaviour
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private RawImage _prefabButton;
 
+    [SerializeField] private Sound _sound;
     [SerializeField] private TriggerLoad _triggerLoad;
     [SerializeField] private CreatorButton _creatorButton;
     [SerializeField] private ChangerScrollRect _changerScrollRect;
@@ -27,6 +28,7 @@ public class Gallery : MonoBehaviour
     {
         var scripts = FinderScript.FindGameScript;
 
+        _sound = scripts.GetComponent<Sound>();
         _client = scripts.GetComponent<Game>();
         _level = scripts.GetComponent<AdminLevel>();
 
@@ -34,7 +36,7 @@ public class Gallery : MonoBehaviour
 
         var argsCreatorElement = new ArgsCreatorElementGallery(_client, _level, _creatorButton);
 
-        _creatorButton.Init(_prefabButton,_changerScrollRect);
+        _creatorButton.Init(_prefabButton,_changerScrollRect,_sound.Button);
         _changerScrollRect.Init(_content, _scrollRect);
         _creatorElement.Init(argsCreatorElement);
         _triggerLoad.Init(this,_content);

@@ -34,8 +34,6 @@ public class Game : MonoBehaviour
         _requstService.Init(_register);
         _downloader.Init(_requstService);
         _reassignmentButton.Init(_adminLevel);
-
-        DontDestroyOnLoad(this);
     }
 
     /// <summary>
